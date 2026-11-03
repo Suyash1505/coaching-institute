@@ -6,6 +6,7 @@ import CoursesSection from "@/components/home/CourseSection";
 import FacultySection from "@/components/home/FacultySection";
 import Testimonials from "@/components/home/Testimonials";
 import ResultsSection from "@/components/home/ResultsSection";
+import AdmissionCTA from "@/components/home/AdmissionCTA";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <FacultySection />
       <Testimonials />
       <ResultsSection />
+      <AdmissionCTA />
 
       {/* ------ FOOTER ------- */}
       <Footer />

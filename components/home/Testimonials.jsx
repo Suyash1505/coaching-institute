@@ -132,7 +132,7 @@ const Testimonials = () => {
                 {/* Quote Icon */}
                 <div className="flex items-center justify-between">
 
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#142B4A] text-[#F28C45] transition-colors transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#F28C45] group-hover:text-[#142B4A]">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#142B4A] text-[#F28C45] transition-colors duration-300 group-hover:scale-110 group-hover:bg-[#F28C45] group-hover:text-[#142B4A]">
                     <Quote size={23} />
                   </div>
 
