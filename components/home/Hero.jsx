@@ -106,12 +106,12 @@ const Hero = () => {
 
           {/* Main Image */}
           <div
-            className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-[#142B4A] bg-cover bg-center shadow-2xl"
+            className="relative aspect-4/5 overflow-hidden rounded-4xl bg-[#142B4A] bg-cover bg-center shadow-2xl"
             style={{
               backgroundImage: "url('/images/hero.jpg')",
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-[#142B4A]/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-[#142B4A]/60 via-transparent to-transparent" />
 
             <div className="absolute bottom-8 left-8 right-8">
               <p className="text-sm font-medium text-white/80">
@@ -142,7 +142,7 @@ const Hero = () => {
           </div>
 
           {/* Decorative Circle */}
-          <div className="absolute -bottom-5 -right-5 -z-0 h-28 w-28 rounded-full bg-[#F28C45]/20 blur-2xl" />
+          <div className="absolute -bottom-5 -right-5 z-0 h-28 w-28 rounded-full bg-[#F28C45]/20 blur-2xl" />
 
         </div>
 
