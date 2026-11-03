@@ -4,6 +4,8 @@ import Hero from "@/components/home/Hero";
 import AboutSection from "@/components/home/AboutSection";
 import CoursesSection from "@/components/home/CourseSection";
 import FacultySection from "@/components/home/FacultySection";
+import Testimonials from "@/components/home/Testimonials";
+import ResultsSection from "@/components/home/ResultsSection";
 
 export default function Home() {
   return (
@@ -17,6 +19,8 @@ export default function Home() {
       <AboutSection />
       <CoursesSection />
       <FacultySection />
+      <Testimonials />
+      <ResultsSection />
 
       {/* ------ FOOTER ------- */}
       <Footer />
