@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import {
   Star,
@@ -6,6 +5,7 @@ import {
   ArrowRight,
   MessageSquareQuote,
 } from "lucide-react";
+import SectionReveal from "@/components/ui/SectionReveal";
 
 const testimonials = [
   {
@@ -46,14 +46,16 @@ const testimonials = [
   },
 ];
 
+const cardStaggers = ["stagger-2", "stagger-3", "stagger-4", "stagger-5"];
+
 const Testimonials = () => {
   return (
     <section className="bg-white py-20 md:py-28">
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <SectionReveal className="mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Section Heading */}
-        <div className="mb-14 text-center">
+        <div className="scroll-reveal mb-14 text-center">
 
           <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-orange-50 px-4 py-2">
             <MessageSquareQuote
@@ -82,7 +84,7 @@ const Testimonials = () => {
         </div>
 
         {/* Rating Highlight */}
-        <div className="mb-12 flex flex-col items-center justify-center gap-5 rounded-2xl bg-[#142B4A] px-8 py-8 text-center sm:flex-row sm:text-left">
+        <div className="scroll-reveal-scale stagger-1 mb-12 flex flex-col items-center justify-center gap-5 rounded-2xl bg-[#142B4A] px-8 py-8 text-center sm:flex-row sm:text-left">
 
           <div>
             <p className="font-heading text-4xl font-bold text-white">
@@ -118,63 +120,67 @@ const Testimonials = () => {
         {/* Testimonial Cards */}
         <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
 
-          {testimonials.map((student) => (
-            <div
-              key={student.id}
-              className="group flex flex-col rounded-2xl border border-gray-100 bg-[#F8F7F3] p-7 transition-all duration-300 hover:-translate-y-2 hover:border-[#F28C45]/40 hover:bg-white hover:shadow-xl"
-            >
+          {testimonials.map((student, index) => {
+            const staggerClass = cardStaggers[index] || "stagger-2";
 
-              {/* Quote Icon */}
-              <div className="flex items-center justify-between">
+            return (
+              <div
+                key={student.id}
+                className={`scroll-reveal ${staggerClass} group flex flex-col rounded-2xl border border-gray-100 bg-[#F8F7F3] p-7 transition-all duration-300 hover:-translate-y-2 hover:border-[#F28C45]/40 hover:border-l-4 hover:border-l-[#F28C45] hover:bg-white hover:shadow-xl`}
+              >
 
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#142B4A] text-[#F28C45] transition-colors group-hover:bg-[#F28C45] group-hover:text-[#142B4A]">
-                  <Quote size={23} />
+                {/* Quote Icon */}
+                <div className="flex items-center justify-between">
+
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#142B4A] text-[#F28C45] transition-colors transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#F28C45] group-hover:text-[#142B4A]">
+                    <Quote size={23} />
+                  </div>
+
+                  <div className="flex gap-0.5">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star
+                        key={star}
+                        size={13}
+                        fill={star <= student.rating ? "#F28C45" : "none"}
+                        stroke="#F28C45"
+                      />
+                    ))}
+                  </div>
+
                 </div>
 
-                <div className="flex gap-0.5">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star
-                      key={star}
-                      size={13}
-                      fill={star <= student.rating ? "#F28C45" : "none"}
-                      stroke="#F28C45"
-                    />
-                  ))}
+                {/* Review */}
+                <p className="mt-7 flex-1 text-sm leading-7 text-[#64748B]">
+                  &quot;{student.review}&quot;
+                </p>
+
+                {/* Student Details */}
+                <div className="mt-7 flex items-center gap-3 border-t border-gray-200 pt-5">
+
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#142B4A] font-heading text-sm font-bold text-white transition-transform duration-300 group-hover:scale-105">
+                    {student.initials}
+                  </div>
+
+                  <div className="min-w-0">
+                    <h3 className="truncate font-heading text-sm font-bold text-[#142B4A]">
+                      {student.name}
+                    </h3>
+
+                    <p className="mt-1 truncate text-xs text-gray-500">
+                      {student.course}
+                    </p>
+                  </div>
+
                 </div>
 
               </div>
-
-              {/* Review */}
-              <p className="mt-7 flex-1 text-sm leading-7 text-[#64748B]">
-                "{student.review}"
-              </p>
-
-              {/* Student Details */}
-              <div className="mt-7 flex items-center gap-3 border-t border-gray-200 pt-5">
-
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#142B4A] font-heading text-sm font-bold text-white">
-                  {student.initials}
-                </div>
-
-                <div className="min-w-0">
-                  <h3 className="truncate font-heading text-sm font-bold text-[#142B4A]">
-                    {student.name}
-                  </h3>
-
-                  <p className="mt-1 truncate text-xs text-gray-500">
-                    {student.course}
-                  </p>
-                </div>
-
-              </div>
-
-            </div>
-          ))}
+            );
+          })}
 
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-14 text-center">
+        <div className="scroll-reveal stagger-6 mt-14 text-center">
 
           <p className="text-sm text-[#64748B]">
             Want to begin your own learning journey?
@@ -190,7 +196,7 @@ const Testimonials = () => {
 
         </div>
 
-      </div>
+      </SectionReveal>
 
     </section>
   );
